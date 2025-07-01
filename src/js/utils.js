@@ -1,0 +1,26 @@
+export function firstLetterUpperCase(text) { 
+    return text
+      .toLowerCase()
+      .split(" ")
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+}
+
+export function getStringMonth(numberMonth){
+    const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    return months[numberMonth];
+}
+
+export function getDaysMonth(year, month){
+    const date = new Date(year, month, 1);
+    const days = [];
+    while(date.getMonth() === month){
+        days.push(new Date(date));
+        date.setDate(date.getDate() + 1);
+    }
+    return days;
+}
+
+export function numberMonth(month){
+    return month + 1;
+}

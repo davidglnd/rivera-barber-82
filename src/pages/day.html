@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario</title>
+    <link rel="stylesheet" href="../css/table-day.css">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+    <script type="module" src="../js/pages/day.js"></script>
+    
+</head>
+<body class="bg-black text-white">
+    <header ><img src="../assets/banner-blanco.PNG"></header>
+    <main>
+        
+        <div class="selected-day">
+            <h2 id="selected-day"></h2>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Hora</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="available-hours">
+                <tr><td>9:30</td><td data-shift="m0" class="available">Reservar</td></tr>
+                <tr><td>10:00</td><td data-shift="m1" class="available">Reservar</td></tr>
+                <tr><td>10:30</td><td data-shift="m2" class="available">Reservar</td></tr>
+                <tr><td>11:00</td><td data-shift="m3" class="available">Reservar</td></tr>
+                <tr><td>11:30</td><td data-shift="m4" class="available">Reservar</td></tr>
+                <tr><td>12:00</td><td data-shift="m5" class="available">Reservar</td></tr>
+                <tr><td>12:30</td><td data-shift="m6" class="available">Reservar</td></tr>
+                <tr><td>13:00</td><td data-shift="m7" class="available">Reservar</td></tr>
+                <tr><td>13:30</td><td data-shift="m8" class="available">Reservar</td></tr>
+                <tr><td>14:00</td><td data-shift="m9" class="available">Reservar</td></tr>
+                <!-- Aqui empieza la tarde -->
+                <tr><td>16:00</td><td data-shift="t0" class="available">Reservar</td></tr>
+                <tr><td>16:30</td><td data-shift="t1" class="available">Reservar</td></tr>
+                <tr><td>17:00</td><td data-shift="t2" class="available">Reservar</td></tr>
+                <tr><td>17:30</td><td data-shift="t3" class="available">Reservar</td></tr>
+                <tr><td>18:00</td><td data-shift="t4" class="available">Reservar</td></tr>
+                <tr><td>18:30</td><td data-shift="t5" class="available">Reservar</td></tr>
+                <tr><td>19:00</td><td data-shift="t6" class="available">Reservar</td></tr>
+                <tr><td>19:30</td><td data-shift="t7" class="available">Reservar</td></tr>
+            </tbody>
+        </table>
+    </main>
+    <footer>
+        <img src="../assets/logo1.PNG">
+    </footer>
+</body>
+</html>
