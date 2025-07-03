@@ -1,3 +1,3 @@
-import {Calendar} from './calendar/calendar.js';
+import {AppointmentCard} from './AppointmentCard/AppointmentCard.js';
 
-export { Calendar };
+export {AppointmentCard};

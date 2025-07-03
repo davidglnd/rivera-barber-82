@@ -24,3 +24,12 @@ export function getDaysMonth(year, month){
 export function numberMonth(month){
     return month + 1;
 }
+export function formatDate(fechaStr) {
+    const [day, month, year] = fechaStr.split('-').map(Number);
+    const fecha = new Date(year, month - 1, day);
+    const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+    let result = fecha.toLocaleDateString('es-ES', options);
+    result = result.replace(',', '');
+
+    return result.charAt(0).toUpperCase() + result.slice(1);
+}
