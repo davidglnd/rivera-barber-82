@@ -1,6 +1,8 @@
 import { getStringMonth,formatDate } from '../utils.js';
 import { handleShift } from '../logic/handleShift.js';
+import {activarLoggerErrores} from '../utils.js';
 window.addEventListener('DOMContentLoaded', () => {
+    activarLoggerErrores();
     const selectedDay = localStorage.getItem('day');
 
     const h2SelectedDay = document.querySelector('#selected-day');
