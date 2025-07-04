@@ -68,4 +68,12 @@
     "></div>
     <div id="mensaje-log">Hola</div>
 </body>
+<script>
+  alert('✅ JS carga ok');
+  window.customElements.whenDefined('appointment-card').then(() => {
+    alert('📦 Componente registrado');
+  }).catch((err) => {
+    alert('❌ No se pudo registrar el componente');
+  });
+</script>
 </html>

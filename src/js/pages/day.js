@@ -3,6 +3,17 @@ import { handleShift } from '../logic/handleShift.js';
 import {activarLoggerErrores} from '../utils.js';
 window.addEventListener('DOMContentLoaded', () => {
     activarLoggerErrores();
+      const testCard = document.createElement('appointment-card');
+  testCard.daySelected = 'Miércoles 3 de Julio';
+  testCard.timeSelected = '10:00';
+  document.body.appendChild(testCard);
+  alert('🟢 Componente forzado montado');
+
+
+
+
+
+
     const selectedDay = localStorage.getItem('day');
 
     const h2SelectedDay = document.querySelector('#selected-day');
@@ -21,17 +32,19 @@ window.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('submitFromAppointmentCard', (e) => AppointmentCardSubmit(e));
 })
 function handleClickReserve(shift,selectedDay){
-    console.log(shift + ' ' + selectedDay);
+    // console.log(shift + ' ' + selectedDay);
 
-    const AppointmentCard = document.createElement('appointment-card');
-    AppointmentCard.daySelected = formatDate(selectedDay)
-    AppointmentCard.timeSelected = handleShift(shift);
-    document.querySelector('body').appendChild(AppointmentCard);
-    const createElement = document.getElementById('mensaje-log')
-    const appointmentCardExist = document.querySelector('appointment-card');
-    createElement.textContent = appointmentCardExist;
-    console.log(appointmentCardExist);
+    // const AppointmentCard = document.createElement('appointment-card');
+    // AppointmentCard.daySelected = formatDate(selectedDay)
+    // AppointmentCard.timeSelected = handleShift(shift);
+    // document.querySelector('body').appendChild(AppointmentCard);
+      console.log('🚨 handleClickReserve triggered');
+  alert(`👋 Click en turno: ${shift}, día: ${selectedDay}`); // <-- clave en iPhone
 
+  const AppointmentCard = document.createElement('appointment-card');
+  AppointmentCard.daySelected = formatDate(selectedDay);
+  AppointmentCard.timeSelected = handleShift(shift);
+  document.body.appendChild(AppointmentCard);
 }
 function AppointmentCardSubmit(e){
     console.log(e.detail.time);
