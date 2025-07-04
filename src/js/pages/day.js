@@ -31,20 +31,33 @@ window.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('submitFromAppointmentCard', (e) => AppointmentCardSubmit(e));
 })
-function handleClickReserve(shift,selectedDay){
-    // console.log(shift + ' ' + selectedDay);
+// function handleClickReserve(shift,selectedDay){
+//     // console.log(shift + ' ' + selectedDay);
 
-    // const AppointmentCard = document.createElement('appointment-card');
-    // AppointmentCard.daySelected = formatDate(selectedDay)
-    // AppointmentCard.timeSelected = handleShift(shift);
-    // document.querySelector('body').appendChild(AppointmentCard);
-      console.log('🚨 handleClickReserve triggered');
-  alert(`👋 Click en turno: ${shift}, día: ${selectedDay}`); // <-- clave en iPhone
+//     // const AppointmentCard = document.createElement('appointment-card');
+//     // AppointmentCard.daySelected = formatDate(selectedDay)
+//     // AppointmentCard.timeSelected = handleShift(shift);
+//     // document.querySelector('body').appendChild(AppointmentCard);
+//       console.log('🚨 handleClickReserve triggered');
+//   alert(`👋 Click en turno: ${shift}, día: ${selectedDay}`); // <-- clave en iPhone
 
-  const AppointmentCard = document.createElement('appointment-card');
-  AppointmentCard.daySelected = formatDate(selectedDay);
-  AppointmentCard.timeSelected = handleShift(shift);
-  document.body.appendChild(AppointmentCard);
+//   const AppointmentCard = document.createElement('appointment-card');
+//   AppointmentCard.daySelected = formatDate(selectedDay);
+//   AppointmentCard.timeSelected = handleShift(shift);
+//   document.body.appendChild(AppointmentCard);
+// }
+function handleClickReserve(shift, selectedDay) {
+    const AppointmentCard = document.createElement('appointment-card');
+    AppointmentCard.daySelected = formatDate(selectedDay);
+    AppointmentCard.timeSelected = handleShift(shift);
+
+    document.body.appendChild(AppointmentCard);
+
+    setTimeout(() => {
+        console.log('🚨 CHECK DISPLAY:', getComputedStyle(AppointmentCard).display);
+        AppointmentCard.style.border = '5px solid lime';
+        AppointmentCard.style.background = 'yellow';
+    }, 100);
 }
 function AppointmentCardSubmit(e){
     console.log(e.detail.time);
