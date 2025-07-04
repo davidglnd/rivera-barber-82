@@ -3,7 +3,7 @@ import ResetCSS from '../../../css/reset.css' with { type: 'css' };
 import AppointmentCardCSS from './AppointmentCard.css' with { type: 'css' };
 export class AppointmentCard extends LitElement {
     static styles = [ResetCSS, AppointmentCardCSS];
-    static propperties = {
+    static properties = {
         daySelected: { type: String },
         timeSelected: { type: String },
     };
