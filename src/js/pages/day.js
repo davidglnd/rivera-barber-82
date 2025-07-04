@@ -27,6 +27,9 @@ function handleClickReserve(shift,selectedDay){
     AppointmentCard.daySelected = formatDate(selectedDay)
     AppointmentCard.timeSelected = handleShift(shift);
     document.querySelector('body').appendChild(AppointmentCard);
+    const createElement = document.querySelector('#error-log')
+    const appointmentCardExist = document.querySelector('appointment-card');
+    createElement.textContent = appointmentCardExist
 }
 function AppointmentCardSubmit(e){
     console.log(e.detail.time);
