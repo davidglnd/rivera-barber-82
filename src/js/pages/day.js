@@ -1,5 +1,7 @@
-import { getStringMonth,formatDate } from '../utils.js';
+import { getStringMonth,formatDate,API_PORT } from '../utils.js';
+import axios from 'https://cdn.skypack.dev/axios';
 import { handleShift } from '../logic/handleShift.js';
+import { Appointment } from '../classes/Appointment.js';
 window.addEventListener('DOMContentLoaded', () => {
   const selectedDay = localStorage.getItem('day');
 
@@ -19,16 +21,25 @@ window.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('submitFromAppointmentCard', (e) => AppointmentCardSubmit(e));
 })
 function handleClickReserve(shift,selectedDay){
-    console.log(shift + ' ' + selectedDay);
+  console.log(shift + ' ' + selectedDay);
 
-    const AppointmentCard = document.createElement('appointment-card');
-    AppointmentCard.daySelected = formatDate(selectedDay)
-    AppointmentCard.timeSelected = handleShift(shift);
-    document.querySelector('body').appendChild(AppointmentCard);
+  const AppointmentCard = document.createElement('appointment-card');
+  AppointmentCard.daySelected = formatDate(selectedDay)
+  AppointmentCard.timeSelected = handleShift(shift);
+  document.querySelector('body').appendChild(AppointmentCard);
 
 }
 
-function AppointmentCardSubmit(e){
-    console.log(e.detail.time);
-    console.log(handleShift(e.detail.time));
+async function AppointmentCardSubmit(e){
+  console.log(e.detail.time);
+
+  const appointment = new Appointment(e.detail.name, e.detail.email, e.detail.phone, e.detail.day, e.detail.time, new Date().toISOString());
+  console.log(appointment)
+  axios.post(`http://localhost${API_PORT}/createAppointment`, appointment)
+  .then(res => {
+    console.log('✅ Cita guardada:', res.data);
+  })
+  .catch(err => {
+    console.error('❌ Error al guardar cita:', err);
+  });
 }

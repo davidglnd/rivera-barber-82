@@ -17,4 +17,6 @@ export function handleShift(shift) {
     if(shift === 't5') return '18:30 de la tarde';
     if(shift === 't6') return '19:00 de la tarde';
     if(shift === 't7') return '19:30 de la tarde';
+
+    return 'Failed to handle shift';
 }

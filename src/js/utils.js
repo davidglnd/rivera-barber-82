@@ -1,3 +1,6 @@
+export const API_PORT = location.port ? `:${1337}` : ''
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 export function firstLetterUpperCase(text) { 
     return text
       .toLowerCase()
@@ -33,3 +36,9 @@ export function formatDate(fechaStr) {
 
     return result.charAt(0).toUpperCase() + result.slice(1);
 }
+
+
+
+
+
+
