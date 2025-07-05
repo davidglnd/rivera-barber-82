@@ -1,24 +1,12 @@
-import { MongoClient, ObjectId } from "mongodb";
+// server/mongodb.js
+import mongoose from 'mongoose';
 
-const URI = process.env.MONGO_URI;
-
-export const db = {
-    appointments:{
-        count: CountAppointments,
-        create: createAppointment,
-    }
-}
-
-async function CountAppointments() {
-    const client = new MongoClient(URI);
-    const barberAppointments = client.db('Barber-Rivera-82');
-    const appointments = barberAppointments.collection('appointments');
-    return await appointments.countDocuments();
-}
-
-async function createAppointment(appointment) {
-    const client = new MongoClient(URI);
-    const barberAppointments = client.db('Barber-Rivera-82');
-    const appointments = barberAppointments.collection('appointments');
-    return await appointments.insertOne(appointment);
-}
+export const connectToDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URI);
+    console.log('✅ Conectado a MongoDB');
+  } catch (err) {
+    console.error('❌ Error conectando a MongoDB', err);
+    process.exit(1);
+  }
+};

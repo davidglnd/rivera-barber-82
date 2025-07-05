@@ -8,5 +8,8 @@
     "axios": "^1.10.0",
     "express": "^5.1.0",
     "mongoose": "^8.16.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.10"
   }
 }

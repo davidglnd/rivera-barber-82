@@ -24,8 +24,8 @@ function handleClickReserve(shift,selectedDay){
   console.log(shift + ' ' + selectedDay);
 
   const AppointmentCard = document.createElement('appointment-card');
-  AppointmentCard.daySelected = formatDate(selectedDay)
-  AppointmentCard.timeSelected = handleShift(shift);
+  AppointmentCard.daySelected = selectedDay;
+  AppointmentCard.timeSelected = shift;
   document.querySelector('body').appendChild(AppointmentCard);
 
 }
@@ -33,13 +33,13 @@ function handleClickReserve(shift,selectedDay){
 async function AppointmentCardSubmit(e){
   console.log(e.detail.time);
 
-  const appointment = new Appointment(e.detail.name, e.detail.email, e.detail.phone, e.detail.day, e.detail.time, new Date().toISOString());
+  const appointment = new Appointment(e.detail.name, e.detail.email, e.detail.phone, e.detail.date, e.detail.shift, new Date().toISOString());
   console.log(appointment)
   axios.post(`http://localhost${API_PORT}/createAppointment`, appointment)
   .then(res => {
     console.log('✅ Cita guardada:', res.data);
   })
   .catch(err => {
-    console.error('❌ Error al guardar cita:', err);
+    console.error('❌ Error al guardar cita:', err.response.data);
   });
 }

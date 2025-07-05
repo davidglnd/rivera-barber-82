@@ -1,6 +1,8 @@
 import { LitElement, html } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/all/lit-all.min.js';
 import ResetCSS from '../../../css/reset.css' with { type: 'css' };
 import AppointmentCardCSS from './AppointmentCard.css' with { type: 'css' };
+import {formatDate} from '../../utils.js';
+import {handleShift} from '../../logic/handleShift.js';
 export class AppointmentCard extends LitElement {
     static styles = [ResetCSS, AppointmentCardCSS];
     static properties = {
@@ -24,8 +26,8 @@ export class AppointmentCard extends LitElement {
             name: formData.get('name'),
             email: formData.get('email'),
             phone: formData.get('phone'),
-            day: this.daySelected,
-            time: this.timeSelected,
+            date: this.daySelected,
+            shift: this.timeSelected,
         }
         console.log(appointmentData);
 
@@ -41,7 +43,7 @@ export class AppointmentCard extends LitElement {
             <div class="overlay-1">
                 <form class="appointment-card" @submit=${this._handleSubmit}>
                     <img src="../assets/icons8-cerrar-ventana-26.png" class="close-btn" @click=${this._handleClickClose}>
-                    <p>${this.daySelected} - ${this.timeSelected}</p>
+                    <p>${formatDate(this.daySelected)} - ${handleShift(this.timeSelected)}</p>
                     <input type="text" name="name" placeholder="Nombre" placeholder="Nombre" required>
                     <input type="email" name="email" placeholder="Correo electrónico" required>
                     <input type="tel" name="phone" placeholder="Teléfono" required>
