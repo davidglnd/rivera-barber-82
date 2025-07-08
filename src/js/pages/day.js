@@ -46,6 +46,7 @@ async function AppointmentCardSubmit(e){
   axios.post(`http://localhost${API_PORT}/createAppointment`, appointment)
   .then(res => {
     console.log('✅ Cita guardada:', res.data);
+    location.reload();
   })
   .catch(err => {
     console.error('❌ Error al guardar cita:', err.response.data);

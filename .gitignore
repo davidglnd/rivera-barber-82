@@ -1,3 +1,4 @@
 .hidden
 node_modules
 .vscode
+.env

@@ -36,6 +36,9 @@ export class AppointmentCard extends LitElement {
             bubbles: true,
             composed: true 
         }));
+        const divResponse = this.shadowRoot.querySelector('.response');
+        divResponse.textContent = 'Cita reservada';
+        setTimeout(() => this.remove(), 3000);
     }
     render() {
         return html`
@@ -48,6 +51,7 @@ export class AppointmentCard extends LitElement {
                     <input type="email" name="email" placeholder="Correo electrónico" required>
                     <input type="tel" name="phone" placeholder="Teléfono" required>
                     <button type="submit">Reservar</button>
+                    <div class="response"></div>
                 </form>
             </div>
         `;
