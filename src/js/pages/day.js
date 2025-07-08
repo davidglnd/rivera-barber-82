@@ -1,9 +1,18 @@
 import { getStringMonth,formatDate,API_PORT } from '../utils.js';
 import axios from 'https://cdn.skypack.dev/axios';
 import { Appointment } from '../classes/Appointment.js';
-window.addEventListener('DOMContentLoaded', () => {
+import {notAvailibilityShifts} from '../logic/notAvailableShifts.js';
+window.addEventListener('DOMContentLoaded', async () => {
   const selectedDay = localStorage.getItem('day');
+  const notAvailableShifts = await notAvailibilityShifts(selectedDay);
 
+  notAvailableShifts.data.forEach(shift => {
+    const btnReserve = document.querySelector(`[data-shift="${shift.shift}"]`);
+    btnReserve.textContent = 'No disponible';
+    btnReserve.classList.remove('available');
+    btnReserve.classList.add('unavailable');
+  });
+  
   const h2SelectedDay = document.querySelector('#selected-day');
   
   h2SelectedDay.textContent = 'Citas del día ' + selectedDay.split('-')[0] + ' ' + getStringMonth(selectedDay.split('-')[1] - 1);

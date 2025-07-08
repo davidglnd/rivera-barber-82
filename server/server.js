@@ -3,7 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { connectToDB } from './mongodb.js';
 import { createAppointment } from './controllers/appointmentController.js';
-import { availabilityChecker } from './controllers/availabilityChecker.js';
+import { availabilityChecker,notAvailibilityShifts } from './controllers/availabilityChecker.js';
 import { Appointment } from './models/Appointment.js';
 
 const app = express();
@@ -20,6 +20,7 @@ app.get('/', (req, res) => {
   res.sendFile('index.html', { root: 'src' });
 });
 app.get('/freeSlots/:date', availabilityChecker);
+app.get('/notAvailibilityShifts/:date', notAvailibilityShifts);
 app.post('/createAppointment', createAppointment);
 
 app.use((req, res) => {
