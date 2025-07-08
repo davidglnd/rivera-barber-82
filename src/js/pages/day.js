@@ -1,6 +1,5 @@
 import { getStringMonth,formatDate,API_PORT } from '../utils.js';
 import axios from 'https://cdn.skypack.dev/axios';
-import { handleShift } from '../logic/handleShift.js';
 import { Appointment } from '../classes/Appointment.js';
 window.addEventListener('DOMContentLoaded', () => {
   const selectedDay = localStorage.getItem('day');

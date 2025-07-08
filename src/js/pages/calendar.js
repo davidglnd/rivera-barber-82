@@ -1,5 +1,6 @@
 import { numberMonth } from '../../js/utils.js';
-import { handleClick } from '../logic/handleClick.js'
+import { handleClick } from '../logic/handleClick.js';
+import {availabilityChecker} from '../logic/availabilityChecker.js';
 import { renderCalendarTitle, getsDaysInMonth, getFirstDayWeek, createEmptyCellsBeforeFirstDay } from '../logic/printMonth.js';
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -19,7 +20,7 @@ function daySelected(day){
     localStorage.setItem('day', day);
 }
 
-export function printMonth(currentDate){// TO DO: TERMINAR DE SEPARAR EN FUNCIONES LOS DIFERENTES BLOQUES Y SACAR DE MAIN.JS
+export async function printMonth(currentDate){// TO DO: TERMINAR DE SEPARAR EN FUNCIONES LOS DIFERENTES BLOQUES Y SACAR DE MAIN.JS
     const month = currentDate.getMonth();
     const table = document.querySelector('#calendar');
     const daysMonth = getsDaysInMonth(currentDate);
@@ -31,8 +32,9 @@ export function printMonth(currentDate){// TO DO: TERMINAR DE SEPARAR EN FUNCION
     const firstDayMonth = new Date(currentDate.getFullYear(), month, 1);
 
     for (let days = 1; days <= daysMonth; days ++){
+        const freeSlots = await availabilityChecker(days + '-' + numberMonth(month) + '-' + currentDate.getFullYear());
         const cell = document.createElement('td');
-        cell.textContent = days;
+        cell.innerHTML = `<p>${days}</p> <p>${freeSlots} citas libres</p>`;
         cell.id = days + '-' + numberMonth(month) + '-' + currentDate.getFullYear();
         cell.addEventListener('click', () => daySelected(cell.id));
         row.appendChild(cell);
