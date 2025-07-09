@@ -30,9 +30,14 @@ export async function printMonth(currentDate){// TO DO: TERMINAR DE SEPARAR EN F
     
     let row = createEmptyCellsBeforeFirstDay(firstDayWeek);
     const firstDayMonth = new Date(currentDate.getFullYear(), month, 1);
-
+    
+    const allFreeSlots = await availabilityChecker(numberMonth(month),currentDate.getFullYear());
+    console.log(allFreeSlots);
+    
     for (let days = 1; days <= daysMonth; days ++){
-        const freeSlots = await availabilityChecker(days + '-' + numberMonth(month) + '-' + currentDate.getFullYear());
+        const fullDate = `${days}-${month + 1}-${currentDate.getFullYear()}`;
+        const freeSlots = allFreeSlots[fullDate] || 0;
+        
         const cell = document.createElement('td');
         cell.innerHTML = `<p>${days}</p> <p>${freeSlots} citas libres</p>`;
         cell.id = days + '-' + numberMonth(month) + '-' + currentDate.getFullYear();

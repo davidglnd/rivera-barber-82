@@ -3,7 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { connectToDB } from './mongodb.js';
 import { createAppointment } from './controllers/appointmentController.js';
-import { availabilityChecker, notAvailibilityShifts } from './controllers/availabilityChecker.js';
+import { getFreeSlotsByMonth, notAvailibilityShifts } from './controllers/availabilityChecker.js';
 import { Appointment } from './models/Appointment.js';
 
 const app = express();
@@ -25,9 +25,9 @@ app.get('/', (req, res) => {
 });
 
 // Rutas backend
-app.get('/freeSlots/:date', availabilityChecker);
 app.get('/notAvailibilityShifts/:date', notAvailibilityShifts);
 app.post('/createAppointment', createAppointment);
+app.get('/freeSlots/month/:monthYear', getFreeSlotsByMonth);
 
 // Página 404
 app.use((req, res) => {

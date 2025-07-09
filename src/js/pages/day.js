@@ -1,7 +1,8 @@
-import { getStringMonth,formatDate,API_PORT } from '../utils.js';
+import { getStringMonth,API_BASE} from '../utils.js';
 import axios from 'https://cdn.skypack.dev/axios';
 import { Appointment } from '../classes/Appointment.js';
 import {notAvailibilityShifts} from '../logic/notAvailableShifts.js';
+
 window.addEventListener('DOMContentLoaded', async () => {
   const selectedDay = localStorage.getItem('day');
   const notAvailableShifts = await notAvailibilityShifts(selectedDay);
@@ -43,7 +44,7 @@ async function AppointmentCardSubmit(e){
 
   const appointment = new Appointment(e.detail.name, e.detail.email, e.detail.phone, e.detail.date, e.detail.shift, new Date().toISOString());
   console.log(appointment)
-  axios.post(`http://localhost${API_PORT}/createAppointment`, appointment)
+  axios.post(`${API_BASE}/createAppointment`, appointment)
   .then(res => {
     console.log('✅ Cita guardada:', res.data);
     location.reload();

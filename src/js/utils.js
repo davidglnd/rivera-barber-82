@@ -1,6 +1,5 @@
-export const API_PORT = location.port ? `:${1337}` : ''
 export const API_BASE = window.location.hostname === 'localhost'
-  ? 'http://localhost:3000'
+  ? 'http://localhost:1337'
   : '';
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 export function firstLetterUpperCase(text) { 
