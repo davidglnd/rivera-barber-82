@@ -1,7 +1,11 @@
+//utils
 import { numberMonth } from '../../js/utils.js';
+//logic
 import { handleClick } from '../logic/handleClick.js';
 import {availabilityChecker} from '../logic/availabilityChecker.js';
 import { renderCalendarTitle, getsDaysInMonth, getFirstDayWeek, createEmptyCellsBeforeFirstDay } from '../logic/printMonth.js';
+//animations
+import { showLoader, hideLoader, animateCalendarCells } from '../animations/calendarAnimations.js';
 
 window.addEventListener('DOMContentLoaded', () => {
     let currentDate = new Date();
@@ -25,6 +29,8 @@ export async function printMonth(currentDate){// TO DO: TERMINAR DE SEPARAR EN F
     const table = document.querySelector('#calendar');
     const daysMonth = getsDaysInMonth(currentDate);
     const firstDayWeek = getFirstDayWeek(currentDate);
+    
+    showLoader(table);
 
     renderCalendarTitle(currentDate,month);
     
@@ -59,4 +65,6 @@ export async function printMonth(currentDate){// TO DO: TERMINAR DE SEPARAR EN F
         table.querySelector('tbody').appendChild(row);
         row = document.createElement('tr');
     }
+    hideLoader(table);
+    animateCalendarCells();
 }

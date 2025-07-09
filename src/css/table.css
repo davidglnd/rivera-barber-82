@@ -64,3 +64,26 @@ caption {
   margin-bottom: 1rem;
 }
 
+#calendar {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+#calendar.show {
+  opacity: 1;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+td.animate-in {
+  animation: fadeInUp 0.4s ease forwards;
+}
