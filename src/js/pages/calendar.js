@@ -5,7 +5,7 @@ import { handleClick } from '../logic/handleClick.js';
 import {availabilityChecker} from '../logic/availabilityChecker.js';
 import { renderCalendarTitle, getsDaysInMonth, getFirstDayWeek, createEmptyCellsBeforeFirstDay } from '../logic/printMonth.js';
 //animations
-import { showLoader, hideLoader, animateCalendarCells } from '../animations/calendarAnimations.js';
+import { showLoader, hideLoader, animateCalendarCells, getColorBySlots} from '../animations/calendarAnimations.js';
 
 window.addEventListener('DOMContentLoaded', () => {
     let currentDate = new Date();
@@ -45,7 +45,13 @@ export async function printMonth(currentDate){// TO DO: TERMINAR DE SEPARAR EN F
         const freeSlots = allFreeSlots[fullDate] || 0;
         
         const cell = document.createElement('td');
-        cell.innerHTML = `<p>${days}</p> <p>${freeSlots} citas libres</p>`;
+
+        const color = getColorBySlots(freeSlots);
+        cell.style.backgroundColor = color;
+        cell.style.color = freeSlots < 18 / 3 ? 'white' : 'black';
+
+        cell.innerHTML = `<p>Dia: ${days}</p> <p>${freeSlots} citas libres</p>`;// poner en mayor tamaño el numero del dia y en menor el numero de citas
+
         cell.id = days + '-' + numberMonth(month) + '-' + currentDate.getFullYear();
         cell.addEventListener('click', () => daySelected(cell.id));
         row.appendChild(cell);
@@ -55,6 +61,10 @@ export async function printMonth(currentDate){// TO DO: TERMINAR DE SEPARAR EN F
         if(dayOfWeek === 7){
             table.querySelector('tbody').appendChild(row);
             row = document.createElement('tr');
+            cell.innerText = 'Cerrado';
+            const oldCell = document.getElementById(`${days}-${numberMonth(month)}-${currentDate.getFullYear()}`);
+            const newCell = oldCell.cloneNode(true);
+            oldCell.parentNode.replaceChild(newCell, oldCell);
         }
         firstDayMonth.setDate(firstDayMonth.getDate() + 1);
     }

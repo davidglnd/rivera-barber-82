@@ -24,3 +24,8 @@ export function animateCalendarCells() {
     cell.style.animationDelay = `${index * 30}ms`; // Delay en cascada
   });
 }
+export function getColorBySlots(freeSlots,maxSlots = 18) {
+    const percentage = (freeSlots / maxSlots) * 100;
+    const color = `hsl(${percentage}, 50%, 50%)`;
+    return color;
+}
