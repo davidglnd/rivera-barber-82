@@ -1,5 +1,8 @@
 
 export function showLoader(table){
+    //btn disabled
+    const btnNextMonth = document.querySelector('#next-month');
+    btnNextMonth.disabled = true;
     //loader 
     const loader = document.querySelector('#calendar-loader');
     //show loader
@@ -7,6 +10,10 @@ export function showLoader(table){
     table.style.display = 'none';
 }
 export function hideLoader(table){
+    //btn enabled
+    const btnNextMonth = document.querySelector('#next-month');
+    btnNextMonth.disabled = false;
+    //loader
     const loader = document.querySelector('#calendar-loader');
     //hide loader
     loader.style.display = 'none';

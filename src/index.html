@@ -8,71 +8,87 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script type="module" src="./js/animations/carousel.js"></script>
 </head>
-<body>
-    <header>
+<body class="flex flex-col flex-wrap content-center">
+  <header class="border-b-2  border-gray-700 w-full">
     <div id="banner" class="flex flex-wrap items-center justify-center gap-4 p-4 text-center md:flex-nowrap  ">
         <p class="text-base md:text-lg text-gray-700 flex-1">Barber Rivera 82</p>
         <img src="./assets/banner-blanco.PNG" alt="Logo Barber Rivera 82" class="w-full max-w-[400px] h-auto flex-1 md:w-auto" />
         <p class="text-base md:text-lg text-gray-700 flex-1 "><a href="./pages/calendar.html">Reservar una cita</a></p>
     </div>
-    </header>
-    <main>
-        <div class="max-w-3xl mx-auto mt-8 p-4 md:p-10 text-gray-800 text-base md:text-lg leading-relaxed space-y-4">
-            <p>
-            En <strong>Barber Rivera 82</strong> no solo hacemos cortes. Aquí te esperan <strong>afeitados cuidados</strong>,
-            <strong>tintes personalizados</strong> y <strong>estilos que se adaptan a ti</strong>.
-            </p>
+  </header>
+  <main class="flex flex-col items-center border border-gray-300 rounded-xl shadow-md p-4 w-11/12 m-auto mt-10 ">
+    <div class="max-w-3xl mx-auto mt-8 p-4 md:p-10 text-gray-800 text-base md:text-lg leading-relaxed space-y-4">
+        <p>
+        En <strong>Barber Rivera 82</strong> no solo hacemos cortes. Aquí te esperan <strong>afeitados cuidados</strong>,
+        <strong>tintes personalizados</strong> y <strong>estilos que se adaptan a ti</strong>.
+        </p>
 
-            <p>
-            Porque más allá del look, lo importante es cómo te sientes al salir.
-            <em class="block mt-2 text-gray-600">“Quiero que se sientan como en su casa, en un sitio tranquilo y dinámico.”</em>
-            </p>
+        <p>
+        Porque más allá del look, lo importante es cómo te sientes al salir.
+        <em class="block mt-2 text-gray-600">“Quiero que se sientan como en su casa, en un sitio tranquilo y dinámico.”</em>
+        </p>
 
-            <p>
-            Esa es la esencia de nuestra barbería. Un lugar donde venir a desconectar, hablar un rato y salir renovado.
-            </p>
+        <p>
+        Esa es la esencia de nuestra barbería. Un lugar donde venir a desconectar, hablar un rato y salir renovado.
+        </p>
+    </div>
+    <div class="relative w-full max-w-4xl mx-auto overflow-hidden mt-15">
+        <div id="carousel" class="flex transition-transform duration-700 ease-in-out ">
+          <img src="./assets/carrusel-1.webp" class="w-full h-[300px] object-cover flex-shrink-0" alt="Imagen 1">
+          <img src="./assets/carrusel-2.webp" class="w-full h-[300px] object-cover flex-shrink-0" alt="Imagen 2">
+          <img src="./assets/carrusel-3.webp" class="w-full h-[300px] object-cover flex-shrink-0" alt="Imagen 3">
         </div>
-        <div class="relative w-full max-w-4xl mx-auto overflow-hidden mt-15">
-            <div id="carousel" class="flex transition-transform duration-700 ease-in-out ">
-              <img src="./assets/carrusel-1.webp" class="w-full h-[300px] object-cover flex-shrink-0" alt="Imagen 1">
-              <img src="./assets/carrusel-2.webp" class="w-full h-[300px] object-cover flex-shrink-0" alt="Imagen 2">
-              <img src="./assets/carrusel-3.webp" class="w-full h-[300px] object-cover flex-shrink-0" alt="Imagen 3">
-            </div>
-            <!-- Flechas -->
-            <button id="prev" class="absolute top-1/2 left-4 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow">
-              <img src="./assets/before.png">
-            </button>
-            <button id="next" class="absolute top-1/2 right-4 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow">
-              <img src="./assets/next.png">
-            </button>
+        <!-- Flechas -->
+        <button id="prev" class="absolute top-1/2 left-4 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow">
+          <img src="./assets/before.png">
+        </button>
+        <button id="next" class="absolute top-1/2 right-4 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow">
+          <img src="./assets/next.png">
+        </button>
 
-            <!-- Indicadores -->
-            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-            <button class="w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100" data-index="0"></button>
-            <button class="w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100" data-index="1"></button>
-            <button class="w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100" data-index="2"></button>
-            </div>
+        <!-- Indicadores -->
+        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+        <button class="w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100" data-index="0"></button>
+        <button class="w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100" data-index="1"></button>
+        <button class="w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100" data-index="2"></button>
         </div>
-        <div class="text-center mt-10 flex flex-col items-center w-full">
-          <h2 class="text-xl font-semibold mb-4">¿Dónde estamos?</h2>
-          
-          <!-- Mapa embebido -->
-          <div class="hidden md:block w-3/4 ">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.569917568808!2d-3.6884139!3d36.7328891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd71896f4ca9893d%3A0x73d8534a94f80a35!2sBarber%20Rivera%2082!5e0!3m2!1ses!2ses!4v1752144613873!5m2!1ses!2ses" 
-            class="w-full h-[400px] "></iframe>
-          </div>
+    </div>
+    <div class="text-center mt-10 flex flex-col items-center w-full">
+      <h2 class="text-xl font-semibold mb-4">¿Dónde estamos?</h2>
+      
+      <!-- Mapa embebido -->
+      <div class="hidden md:block w-3/4 ">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.569917568808!2d-3.6884139!3d36.7328891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd71896f4ca9893d%3A0x73d8534a94f80a35!2sBarber%20Rivera%2082!5e0!3m2!1ses!2ses!4v1752144613873!5m2!1ses!2ses" 
+        class="w-full h-[400px] "></iframe>
+      </div>
 
-          <!-- Botón solo visible en móvil -->
-          <a
-            href="https://www.google.com/maps?q=Barber+Rivera+82"
-            target="_blank"
-            class="md:hidden inline-block mt-4 bg-black text-white px-4 py-2 rounded-full shadow ">
-            📍 Abrir en Google Maps
-          </a>
-        </div>
-    </main>
-    <footer class="flex flex-col items-center mt-16">
-      <p>Icons by <a href="https://icons8.com">Icons8</a></p>
-    </footer>
+      <!-- Botón solo visible en móvil -->
+      <a
+        href="https://www.google.com/maps?q=Barber+Rivera+82"
+        target="_blank"
+        class="md:hidden inline-block mt-4 bg-black text-white px-4 py-2 rounded-full shadow ">
+        📍 Abrir en Google Maps
+      </a>
+    </div>
+  </main>
+  <footer class="flex flex-row justify-around items-stretch w-11/12 mx-auto mt-5">
+    <!-- Logo -->
+    <div class="flex items-center justify-center p-4 h-full">
+      <img src="./assets/logo1.PNG" alt="Logo Barber Rivera 82" class="w-full max-w-[200px] h-auto md:w-auto" />
+    </div>
+    <!-- Redes -->
+    <div class="flex items-center justify-center p-4 h-full">
+      <a href="https://www.instagram.com/barber_rivera82/" target="_blank" class="flex items-center justify-center p-4 h-full">
+        <img src="./assets/instagram.gif" alt="Instagram" class="w-full max-w-[50px] h-auto md:w-auto" />
+      </a>
+    </div>
+    <!-- Créditos -->
+    <div class="flex flex-col justify-end h-full p-4 text-sm text-right md:text-left">
+      <div class="mt-auto">
+        <p>Designed by <a href="https://github.com/davidglnd">David Galindo</a></p>
+        <p>Icons by <a href="https://icons8.com">Icons8</a></p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

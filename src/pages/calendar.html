@@ -4,31 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calendario</title>
-    <link rel="stylesheet" href="../css/table.css">
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+    <!-- <link rel="stylesheet" href="../css/table.css"> -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script type="module" src="../js/pages/calendar.js"></script>
     
 </head>
-<body class="bg-black text-white">
-    <header >Bienvenido a calendario</header>
+<body>
+    <header>
+        <div id="banner" class="flex flex-wrap items-center justify-center gap-4 p-4 text-center md:flex-nowrap  ">
+            <img src="../assets/banner-blanco.PNG" alt="Logo Barber Rivera 82" class="w-full max-w-[400px] h-auto flex-1 md:w-auto" />
+        </div>
+    </header>
     <main>
         <div class="controls">
             <h2 id="calendar-title"></h2>
-            <h3 id="next-month">ver siguiente mes</h3>
+            <button id="next-month">ver siguiente mes</button>
         </div>
-        <div id="calendar-loader" style="text-align: center; padding: 2rem;">
+        <div id="calendar-loader">
             <p>Cargando calendario...</p>
         </div>
-        <table id="calendar">
+        <table id="calendar" class="table w-3/4">
             <thead>
                 <tr>
-                    <th>Lunes</th>
-                    <th>Martes</th>
-                    <th>Miércoles</th>
-                    <th>Jueves</th>
-                    <th>Viernes</th>
-                    <th>Sábado</th>
-                    <th>Domingo</th>
+                    <th class="bg-red-500">Lunes</th>
+                    <th class="bg-red-500">Martes</th>
+                    <th class="bg-red-500">Miércoles</th>
+                    <th class="bg-red-500">Jueves</th>
+                    <th class="bg-red-500">Viernes</th>
+                    <th class="bg-red-500">Sábado</th>
+                    <th class="bg-blue-500">Domingo</th>
                 </tr>
             </thead>
             <tbody></tbody>
