@@ -29,7 +29,7 @@ export async function printMonth(currentDate){// TO DO: TERMINAR DE SEPARAR EN F
     const table = document.querySelector('#calendar');
     const daysMonth = getsDaysInMonth(currentDate);
     const firstDayWeek = getFirstDayWeek(currentDate);
-    
+    const classListCell = 'cursor-pointer m-auto p-3 border border-gray-300 rounded-lg shadow-md mt-4';
     showLoader(table);
 
     renderCalendarTitle(currentDate,month);
@@ -50,11 +50,14 @@ export async function printMonth(currentDate){// TO DO: TERMINAR DE SEPARAR EN F
         cell.style.backgroundColor = color;
         cell.style.color = freeSlots < 18 / 3 ? 'white' : 'black';
 
-        cell.innerHTML = `<p>Dia: ${days}</p> <p>${freeSlots} citas libres</p>`;// poner en mayor tamaño el numero del dia y en menor el numero de citas
+        cell.innerHTML = `<p><span id="desktop-day">Dia:</span> ${days}</p> <p>${freeSlots} citas libres</p>`;// poner en mayor tamaño el numero del dia y en menor el numero de citas
+        cell.className = classListCell;
 
         cell.id = days + '-' + numberMonth(month) + '-' + currentDate.getFullYear();
         cell.addEventListener('click', () => daySelected(cell.id));
         row.appendChild(cell);
+
+        checkMovil();
 
         const dayOfWeek = firstDayMonth.getDay() === 0 ? 7 : firstDayMonth.getDay();
 
@@ -64,6 +67,7 @@ export async function printMonth(currentDate){// TO DO: TERMINAR DE SEPARAR EN F
             cell.innerText = 'Cerrado';
             const oldCell = document.getElementById(`${days}-${numberMonth(month)}-${currentDate.getFullYear()}`);
             const newCell = oldCell.cloneNode(true);
+            newCell.classList.remove('cursor-pointer');
             oldCell.parentNode.replaceChild(newCell, oldCell);
         }
         firstDayMonth.setDate(firstDayMonth.getDate() + 1);
@@ -77,4 +81,15 @@ export async function printMonth(currentDate){// TO DO: TERMINAR DE SEPARAR EN F
     }
     hideLoader(table);
     animateCalendarCells();
+}
+
+function checkMovil(){
+    if(window.innerWidth < 1024){
+        const cells = document.querySelectorAll('#calendar td');
+        cells.forEach(cell => cell.classList.remove('cursor-pointer'));
+        
+        const days = document.querySelectorAll('#desktop-day');
+        days.forEach(day => day.style.display = 'none');
+    }
+
 }

@@ -50,13 +50,6 @@ td.available.selected {
   border-left: 4px solid #d10000;
 }
 
-caption {
-  font-size: 1.5rem;
-  margin: 1rem 0;
-  color: #d10000; /* rojo peluquería */
-  text-align: center;
-}
-
 .controls {
   display: flex;
   justify-content: space-around;

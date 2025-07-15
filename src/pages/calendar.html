@@ -9,18 +9,18 @@
     <script type="module" src="../js/pages/calendar.js"></script>
     
 </head>
-<body>
+<body class="flex flex-col min-h-screen">
     <header>
-        <div id="banner" class="flex flex-wrap items-center justify-center gap-4 p-4 text-center md:flex-nowrap  ">
+        <div id="banner" class="flex flex-wrap items-center justify-center gap-4 p-4 text-center md:flex-nowrap h-[15vh]">
             <img src="../assets/banner-blanco.PNG" alt="Logo Barber Rivera 82" class="w-full max-w-[400px] h-auto flex-1 md:w-auto" />
         </div>
     </header>
-    <main>
-        <div class="controls">
-            <h2 id="calendar-title"></h2>
+    <main class ="flex flex-col  flex-1 items-center h-[75vh]">
+        <div class="flex justify-around w-3/4 mt-8 mb-8">
+            <h2 id="calendar-title" class="text-2xl font-bold"></h2>
             <button id="next-month">ver siguiente mes</button>
         </div>
-        <div id="calendar-loader">
+        <div id="calendar-loader" class="text-6xl pt-56">
             <p>Cargando calendario...</p>
         </div>
         <table id="calendar" class="table w-3/4">
@@ -38,6 +38,24 @@
             <tbody></tbody>
         </table>
     </main>
-    <footer></footer>
+    <footer class="flex flex-row justify-around items-stretch w-11/12 mx-auto mt-5">
+        <!-- Logo -->
+        <div class="flex items-center justify-center p-4 h-full">
+        <img src="../assets/logo1.PNG" alt="Logo Barber Rivera 82" class="w-full max-w-[200px] h-auto md:w-auto" />
+        </div>
+        <!-- Redes -->
+        <div class="flex items-center justify-center p-4 h-full">
+        <a href="https://www.instagram.com/barber_rivera82/" target="_blank" class="flex items-center justify-center p-4 h-full">
+            <img src="../assets/instagram.gif" alt="Instagram" class="w-full max-w-[50px] h-auto md:w-auto" />
+        </a>
+        </div>
+        <!-- Créditos -->
+        <div class="flex flex-col justify-end h-full p-4 text-sm text-right md:text-left">
+        <div class="mt-auto">
+            <p>Designed by <a href="https://github.com/davidglnd">David Galindo</a></p>
+            <p>Icons by <a href="https://icons8.com">Icons8</a></p>
+        </div>
+        </div>
+  </footer>
 </body>
 </html>
