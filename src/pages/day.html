@@ -5,17 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calendario</title>
     <link rel="stylesheet" href="../css/table-day.css">
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script type="module" src="../js/pages/day.js"></script>
     <script type="module" src="../js/components/bundle.js"></script>
 </head>
 <body>
-    <header ><img src="../assets/banner-blanco.PNG"></header>
+    <header>
+        <div id="banner" class="flex flex-wrap items-center justify-center gap-4 p-4 text-center md:flex-nowrap h-[15vh]">
+            <img src="../assets/banner-blanco.PNG" alt="Logo Barber Rivera 82" class="w-full max-w-[400px] h-auto flex-1 md:w-auto" />
+        </div>
+    </header>
     <main>
         
-        <div class="selected-day">
+        <div class="flex flex-col sm:flex-row justify-between items-center w-full max-w-4xl gap-4 mb-6">
             <h2 id="selected-day"></h2>
-            <h3 id="back-to-calendar">Volver al calendario</h3>
+            <button id="back-to-calendar" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-800 hover:cursor-pointer transition">Volver al calendario</button>
         </div>
         <table>
             <thead>
@@ -47,10 +51,25 @@
             </tbody>
         </table>
     </main>
-    <footer>
-        <img src="../assets/logo1.PNG">
-        Icons by <a href="https://icons8.com">Icons8</a>
-    </footer>
+    <footer class="flex flex-row justify-around items-stretch w-11/12 mx-auto mt-5">
+        <!-- Logo -->
+        <div class="flex items-center justify-center p-4 h-full">
+        <img src="../assets/logo1.PNG" alt="Logo Barber Rivera 82" class="w-full max-w-[200px] h-auto md:w-auto" />
+        </div>
+        <!-- Redes -->
+        <div class="flex items-center justify-center p-4 h-full">
+        <a href="https://www.instagram.com/barber_rivera82/" target="_blank" class="flex items-center justify-center p-4 h-full">
+            <img src="../assets/instagram.gif" alt="Instagram" class="w-full max-w-[50px] h-auto md:w-auto" />
+        </a>
+        </div>
+        <!-- Créditos -->
+        <div class="flex flex-col justify-end h-full p-4 text-sm text-right md:text-left">
+        <div class="mt-auto">
+            <p>Designed by <a href="https://github.com/davidglnd">David Galindo</a></p>
+            <p>Icons by <a href="https://icons8.com">Icons8</a></p>
+        </div>
+        </div>
+  </footer>
 </body>
 
 </html>

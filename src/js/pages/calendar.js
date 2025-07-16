@@ -57,7 +57,7 @@ export async function printMonth(currentDate){// TO DO: TERMINAR DE SEPARAR EN F
         cell.addEventListener('click', () => daySelected(cell.id));
         row.appendChild(cell);
 
-        checkMovil();
+        
 
         const dayOfWeek = firstDayMonth.getDay() === 0 ? 7 : firstDayMonth.getDay();
 
@@ -68,6 +68,7 @@ export async function printMonth(currentDate){// TO DO: TERMINAR DE SEPARAR EN F
             const oldCell = document.getElementById(`${days}-${numberMonth(month)}-${currentDate.getFullYear()}`);
             const newCell = oldCell.cloneNode(true);
             newCell.classList.remove('cursor-pointer');
+            newCell.classList.add('hidden','md:table-cell');
             oldCell.parentNode.replaceChild(newCell, oldCell);
         }
         firstDayMonth.setDate(firstDayMonth.getDate() + 1);
@@ -79,17 +80,44 @@ export async function printMonth(currentDate){// TO DO: TERMINAR DE SEPARAR EN F
         table.querySelector('tbody').appendChild(row);
         row = document.createElement('tr');
     }
+    checkMovil();
     hideLoader(table);
     animateCalendarCells();
 }
 
 function checkMovil(){
+    const thead = document.querySelector('thead');
     if(window.innerWidth < 1024){
+        thead.innerHTML = `<tr>
+        <th class="bg-red-500">L</th>
+        <th class="bg-red-500">M</th>
+        <th class="bg-red-500">X</th>
+        <th class="bg-red-500">J</th>
+        <th class="bg-red-500">V</th>
+        <th class="bg-red-500">S</th>
+        <th class="bg-blue-500">D</th>
+            </tr>`;
+
         const cells = document.querySelectorAll('#calendar td');
         cells.forEach(cell => cell.classList.remove('cursor-pointer'));
         
         const days = document.querySelectorAll('#desktop-day');
         days.forEach(day => day.style.display = 'none');
+
+        const sundayTh = document.querySelector('th:last-child');
+        sundayTh.style.display = 'none';
+
+
+    }else{
+        thead.innerHTML = `<tr>
+            <th class="bg-red-500">Lunes</th>
+            <th class="bg-red-500">Martes</th>
+            <th class="bg-red-500">Miércoles</th>
+            <th class="bg-red-500">Jueves</th>
+            <th class="bg-red-500">Viernes</th>
+            <th class="bg-red-500">Sábado</th>
+            <th class="bg-blue-500">Domingo</th>
+                </tr>`;
     }
 
 }

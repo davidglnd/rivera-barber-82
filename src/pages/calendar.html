@@ -15,29 +15,26 @@
             <img src="../assets/banner-blanco.PNG" alt="Logo Barber Rivera 82" class="w-full max-w-[400px] h-auto flex-1 md:w-auto" />
         </div>
     </header>
-    <main class ="flex flex-col  flex-1 items-center h-[75vh]">
-        <div class="flex justify-around w-3/4 mt-8 mb-8">
-            <h2 id="calendar-title" class="text-2xl font-bold"></h2>
-            <button id="next-month">ver siguiente mes</button>
-        </div>
-        <div id="calendar-loader" class="text-6xl pt-56">
-            <p>Cargando calendario...</p>
-        </div>
-        <table id="calendar" class="table w-3/4">
-            <thead>
-                <tr>
-                    <th class="bg-red-500">Lunes</th>
-                    <th class="bg-red-500">Martes</th>
-                    <th class="bg-red-500">Miércoles</th>
-                    <th class="bg-red-500">Jueves</th>
-                    <th class="bg-red-500">Viernes</th>
-                    <th class="bg-red-500">Sábado</th>
-                    <th class="bg-blue-500">Domingo</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
+<main class="flex flex-col flex-1 items-center min-h-[75vh] px-4 py-6">
+    <!-- Cabecera con título y botón -->
+    <div class="flex flex-col sm:flex-row justify-between items-center w-full max-w-4xl gap-4 mb-6">
+        <h2 id="calendar-title" class="text-2xl font-bold text-center sm:text-left"></h2>
+        <button id="next-month" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-800 hover:cursor-pointer transition">Ver siguiente mes</button>
+    </div>
+
+    <!-- Loader -->
+    <div id="calendar-loader" class="text-xl py-12 text-gray-500 hidden">
+        <p>Cargando calendario...</p>
+    </div>
+
+    <!-- Tabla responsive -->
+    <div class="w-full max-w-4xl">
+        <table id="calendar" class="table w-full text-xs md:text-xl">
+        <thead></thead>
+        <tbody></tbody>
         </table>
-    </main>
+    </div>
+</main>
     <footer class="flex flex-row justify-around items-stretch w-11/12 mx-auto mt-5">
         <!-- Logo -->
         <div class="flex items-center justify-center p-4 h-full">

@@ -17,6 +17,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   const h2SelectedDay = document.querySelector('#selected-day');
   
   h2SelectedDay.textContent = 'Citas del día ' + selectedDay.split('-')[0] + ' ' + getStringMonth(selectedDay.split('-')[1] - 1);
+  h2SelectedDay.className = 'font-bold text-2xl';
 
   const h3BackToCalendar = document.querySelector('#back-to-calendar');
   h3BackToCalendar.addEventListener('click', () => window.location.href = '../pages/calendar.html');
