@@ -1,4 +1,17 @@
 {
+  "name": "agenda-peluqueria",
+  "version": "1.0.0",
+  "description": "Agenda de peluquería con backend en Node.js y MongoDB",
+  "author": "David Galindo",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidglnd/rivera-barber-82.git"
+  },
+  "bugs": {
+    "url": "https://github.com/davidglnd/rivera-barber-82/issues"
+  },
+  "homepage": "https://github.com/davidglnd/rivera-barber-82#readme",
   "type": "module",
   "main": "server/server.js",
   "scripts": {
@@ -13,3 +26,4 @@
     "@types/node": "^24.0.10"
   }
 }
+
