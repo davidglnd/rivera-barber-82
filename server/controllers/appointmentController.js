@@ -17,3 +17,8 @@ export async function createAppointment(req,res){
     await appointment.save();
     res.send(`${req.body.date}`);
 }
+
+export async function getCountAppointments(req, res) {
+    const count = await Appointment.countDocuments();
+    res.send(count);
+}

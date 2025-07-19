@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Admin</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script type="module" src="../../js/pages/admin/main.js"></script>
     <script type="module" src="../../js/components/bundle.js"></script>
 </head>
 <body>
@@ -17,7 +18,12 @@
     <aside class=" hidden md:flex col-span-1 row-span-2 bg-gray-200 text-gray-700 font-medium shadow-lg w-48">
         <ul class="flex flex-col items-stretch gap-2 p-4 h-full">
         <li>
-            <a href="#" class="block text-center px-4 py-3 rounded-xl transition-all duration-200 bg-white hover:bg-black hover:text-white shadow hover:shadow-md text-base">
+            <a id="btn-home" href="./admin.html" class="block text-center px-4 py-3 rounded-xl transition-all duration-200 bg-black text-white shadow-md text-base">
+                Inicio
+            </a>
+        </li>    
+        <li>
+            <a id="btn-reserved-appointments" href="./pages/admin/reserved-appointments.html" class="block text-center px-4 py-3 rounded-xl transition-all duration-200 bg-white hover:bg-black hover:text-white shadow hover:shadow-md text-base">
                 Citas reservadas
             </a>
         </li>
@@ -40,7 +46,8 @@
     </aside>
     <!-- Contenido principal -->
     <section class="col-start-2 row-start-1 p-6 overflow-auto">
-        <h1 class="text-2xl font-bold mb-4">Dashboard</h1>
+        <h1 class="text-2xl font-bold mb-4">Panel de administracion</h1>
+        <div id="dashboard-home"></div>
     </section>
 
     <!-- Footer -->

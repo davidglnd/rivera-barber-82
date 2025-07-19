@@ -4,7 +4,10 @@ import { fileURLToPath } from 'url';
 import { connectToDB } from './mongodb.js';
 import { createAppointment } from './controllers/appointmentController.js';
 import { getFreeSlotsByMonth, notAvailibilityShifts } from './controllers/availabilityChecker.js';
+import { getCountAppointments } from './controllers/appointmentController.js';
+//models
 import { Appointment } from './models/Appointment.js';
+import { get } from 'http';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -28,6 +31,7 @@ app.get('/', (req, res) => {
 app.get('/notAvailibilityShifts/:date', notAvailibilityShifts);
 app.post('/createAppointment', createAppointment);
 app.get('/freeSlots/month/:monthYear', getFreeSlotsByMonth);
+app.get('/countAppointments', getCountAppointments);
 
 // Página 404
 app.use((req, res) => {
@@ -40,5 +44,5 @@ connectToDB();
 // Arrancar el server
 app.listen(PORT, async () => {
   const count = await Appointment.countDocuments();
-  console.log(`🚀 Server en http://localhost:${PORT} — ${count} citas`);
+  console.log(`🚀 Server en http://localhost:${PORT}`);
 });
