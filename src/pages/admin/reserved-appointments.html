@@ -15,63 +15,20 @@
 <main class="grid grid-cols-[auto_1fr] grid-rows-[1fr_auto]  min-h-[calc(100vh-10rem)] md:min-h-[calc(100vh-4rem)]">
     <!-- Sidebar -->
     <aside class=" hidden md:flex col-span-1 row-span-2 bg-gray-200 text-gray-700 font-medium shadow-lg w-48">
-        <ul class="flex flex-col items-stretch gap-2 p-4 h-full">
-        <li>
-            <a href="../../admin.html" class="block text-center px-4 py-3 rounded-xl transition-all duration-200 bg-white hover:bg-black hover:text-white shadow hover:shadow-md text-base">
-                Inicio
-            </a>
-        </li>
-        <li>
-            <a id="btn-reserved-appointments" href="./pages/admin/reserved-appointments.html" class="block text-center px-4 py-3 rounded-xl transition-all duration-200  bg-black text-white shadow-md text-base">
-                Citas reservadas
-            </a>
-        </li>
-        <li>
-            <a href="#" class="block text-center px-4 py-3 rounded-xl transition-all duration-200 bg-white hover:bg-black hover:text-white shadow hover:shadow-md text-base">
-                Opción 3
-            </a>
-        </li>
-        <li>
-            <a href="#" class="block text-center px-4 py-3 rounded-xl transition-all duration-200 bg-white hover:bg-black hover:text-white shadow hover:shadow-md text-base">
-                Opción 4
-            </a>
-        </li>
-        <li>
-            <a href="#" class="block text-center px-4 py-3 rounded-xl transition-all duration-200 bg-white hover:bg-black hover:text-white shadow hover:shadow-md text-base">
-                Opción 5
-            </a>
-        </li>
-        </ul>
+        <side-bar></side-bar>
     </aside>
     <!-- Contenido principal -->
     <section class="col-start-2 row-start-1 p-6 overflow-auto">
         <h1 class="text-2xl font-bold mb-4">Panel de administracion</h1>
         <filter-bar></filter-bar>
+        <div id="appointments-list" class="mt-10 w-full text-center">Selecciona una opcion para mostrar</div>
     </section>
 
     <!-- Footer -->
     <footer class="col-start-2 row-start-2 bg-black text-green-400 font-mono text-sm p-3 overflow-auto h-20 md:h-24">
         > Bienvenido al panel de administracion de la agenda...
     </footer>
-    <!-- Bottom nav solo en mobile -->
-    <nav class="fixed bottom-0 left-0 w-full bg-gray-200 text-gray-700 flex justify-around items-center md:hidden h-16 shadow-t z-50">
-        <a href="./pages/calendar.html" class="flex flex-col items-center text-sm hover:text-black">
-        <span>📅</span>
-        <span>Citas</span>
-        </a>
-        <a href="#" class="flex flex-col items-center text-sm hover:text-black">
-        <span>🧾</span>
-        <span>Opción 3</span>
-        </a>
-        <a href="#" class="flex flex-col items-center text-sm hover:text-black">
-        <span>⚙️</span>
-        <span>Opción 4</span>
-        </a>
-        <a href="#" class="flex flex-col items-center text-sm hover:text-black">
-        <span>🔔</span>
-        <span>Opción 5</span>
-        </a>
-    </nav>
+    <bottom-nav-mobile></bottom-nav-mobile>
 </main>
 
 </body>
