@@ -1,4 +1,5 @@
 import { createAppointment } from '../../server/controllers/appointmentController.js';
+import { connectToDB } from '../../server/mongodb.js';
 export async function handler(event) {
   if (event.httpMethod !== 'POST') {
     return {
@@ -8,6 +9,7 @@ export async function handler(event) {
   }
 
   try {
+    await connectToDB();
     const data = JSON.parse(event.body);
     const result = await createAppointment(data);
 

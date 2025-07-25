@@ -1,20 +1,20 @@
 import { Appointment } from '../models/Appointment.js';
-export async function getFreeSlotsByMonth(req, res) {
-    const [month, year] = req.params.monthYear.split('-'); // ej: 7-2025
-    const TOTAL_SHIFTS = 18;
-    const daysInMonth = new Date(year, month, 0).getDate(); // ej: 31
-
-    const result = {};
-
-    for (let day = 1; day <= daysInMonth; day++) {
-    const date = `${day}-${month}-${year}`;
-
-    const count = await Appointment.find({ date }).countDocuments();
-    result[date] = TOTAL_SHIFTS - count;
+export async function getFreeSlotsByMonth(data) {
+    try{
+        const monthYear = data;
+        const [month, year] = monthYear.split('-');
+        const TOTAL_SHIFTS = 18;
+        const daysInMonth = new Date(year, month, 0).getDate();
+        const result = {};
+        for (let day = 1; day <= daysInMonth; day++) {
+            const date = `${day}-${month}-${year}`;
+            const count = await Appointment.find({ date }).countDocuments();
+            result[date] = TOTAL_SHIFTS - count;
+        }
+        return result;
+    }catch(err){
+        console.log(err + ' avaChecker');
     }
-
-    res.json(result); // { '1-7-2025': 12, '2-7-2025': 18, ... }
-
 }
 
 export async function notAvailibilityShifts(req, res) {

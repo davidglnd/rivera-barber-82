@@ -38,7 +38,14 @@ app.post('/api/createAppointment',async (req, res) => {
     res.status(400).send(err.message);
   }
 });
-app.get('/api/freeSlots/month/:monthYear', getFreeSlotsByMonth);
+app.get('/api/freeSlots/month/:monthYear', async (req,res) => {
+  try {
+    const result = await getFreeSlotsByMonth(req.params.monthYear);
+    res.send(result);
+  } catch (err) {
+    res.status(400).send(err.message);
+  }
+});
 app.get('/countAppointments', getCountAppointments);
 
 // Página 404
