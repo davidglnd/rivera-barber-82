@@ -15,7 +15,8 @@
   "type": "module",
   "main": "server/server.js",
   "scripts": {
-    "start": "node --env-file=.env --watch server/server.js"
+    "start": "node --env-file=.env --watch server/server.js",
+    "dev": "netlify dev --dir=src"
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.1.11",
@@ -23,9 +24,11 @@
     "express": "^5.1.0",
     "lit": "^3.3.1",
     "mongoose": "^8.16.1",
+    "netlify-cli": "^22.3.0",
     "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
-    "@types/node": "^24.0.10"
+    "@types/node": "^24.0.10",
+    "concurrently": "^9.2.0"
   }
 }

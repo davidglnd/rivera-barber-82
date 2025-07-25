@@ -21,35 +21,37 @@
             <h2 id="selected-day"></h2>
             <button id="back-to-calendar" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-800 hover:cursor-pointer transition">Volver al calendario</button>
         </div>
-        <table>
-            <thead>
-                <tr>
-                    <th>Hora</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody id="available-hours">
-                <tr><td>9:30</td><td data-shift="m0" class="available">Reservar</td></tr>
-                <tr><td>10:00</td><td data-shift="m1" class="available">Reservar</td></tr>
-                <tr><td>10:30</td><td data-shift="m2" class="available">Reservar</td></tr>
-                <tr><td>11:00</td><td data-shift="m3" class="available">Reservar</td></tr>
-                <tr><td>11:30</td><td data-shift="m4" class="available">Reservar</td></tr>
-                <tr><td>12:00</td><td data-shift="m5" class="available">Reservar</td></tr>
-                <tr><td>12:30</td><td data-shift="m6" class="available">Reservar</td></tr>
-                <tr><td>13:00</td><td data-shift="m7" class="available">Reservar</td></tr>
-                <tr><td>13:30</td><td data-shift="m8" class="available">Reservar</td></tr>
-                <tr><td>14:00</td><td data-shift="m9" class="available">Reservar</td></tr>
-                <!-- Aqui empieza la tarde -->
-                <tr><td>16:00</td><td data-shift="t0" class="available">Reservar</td></tr>
-                <tr><td>16:30</td><td data-shift="t1" class="available">Reservar</td></tr>
-                <tr><td>17:00</td><td data-shift="t2" class="available">Reservar</td></tr>
-                <tr><td>17:30</td><td data-shift="t3" class="available">Reservar</td></tr>
-                <tr><td>18:00</td><td data-shift="t4" class="available">Reservar</td></tr>
-                <tr><td>18:30</td><td data-shift="t5" class="available">Reservar</td></tr>
-                <tr><td>19:00</td><td data-shift="t6" class="available">Reservar</td></tr>
-                <tr><td>19:30</td><td data-shift="t7" class="available">Reservar</td></tr>
-            </tbody>
+        <table class="w-full border-2 border-black border-collapse bg-white shadow-md shadow-black/10 ">
+        <thead>
+            <tr>
+            <th class="bg-[#d10000] text-white uppercase text-base p-3">Hora</th>
+            <th class="bg-[#0033a0] text-white uppercase text-base p-3"></th>
+            </tr>
+        </thead>
+        <tbody id="available-hours">
+            <tr><td class="p-4 text-center border-b border-gray-300 ">9:30</td><td data-shift="m0" class="available p-4 text-center border-b border-gray-300 font-bold bg-gray-100 text-black cursor-pointer transition-all border-l-4  hover:bg-gray-200 hover:text-[#d10000] hover:border-[#d10000]">Reservar</td></tr>
+            <tr><td class="p-4 text-center border-b border-gray-300">10:00</td><td data-shift="m1" class="available p-4 text-center border-b border-gray-300 font-bold bg-gray-100 text-black cursor-pointer transition-all border-l-4 hover:bg-gray-200 hover:text-[#d10000] hover:border-[#d10000]">Reservar</td></tr>
+            <tr><td class="p-4 text-center border-b border-gray-300">10:30</td><td data-shift="m2" class="available p-4 text-center border-b border-gray-300 font-bold bg-gray-100 text-black cursor-pointer transition-all border-l-4 hover:bg-gray-200 hover:text-[#d10000] hover:border-[#d10000]">Reservar</td></tr>
+            <tr><td class="p-4 text-center border-b border-gray-300">11:00</td><td data-shift="m3" class="available p-4 text-center border-b border-gray-300 font-bold bg-gray-100 text-black cursor-pointer transition-all border-l-4 hover:bg-gray-200 hover:text-[#d10000] hover:border-[#d10000]">Reservar</td></tr>
+            <tr><td class="p-4 text-center border-b border-gray-300">11:30</td><td data-shift="m4" class="available p-4 text-center border-b border-gray-300 font-bold bg-gray-100 text-black cursor-pointer transition-all border-l-4 hover:bg-gray-200 hover:text-[#d10000] hover:border-[#d10000]">Reservar</td></tr>
+            <tr><td class="p-4 text-center border-b border-gray-300">12:00</td><td data-shift="m5" class="available p-4 text-center border-b border-gray-300 font-bold bg-gray-100 text-black cursor-pointer transition-all border-l-4 hover:bg-gray-200 hover:text-[#d10000] hover:border-[#d10000]">Reservar</td></tr>
+            <tr><td class="p-4 text-center border-b border-gray-300">12:30</td><td data-shift="m6" class="available p-4 text-center border-b border-gray-300 font-bold bg-gray-100 text-black cursor-pointer transition-all border-l-4 hover:bg-gray-200 hover:text-[#d10000] hover:border-[#d10000]">Reservar</td></tr>
+            <tr><td class="p-4 text-center border-b border-gray-300">13:00</td><td data-shift="m7" class="available p-4 text-center border-b border-gray-300 font-bold bg-gray-100 text-black cursor-pointer transition-all border-l-4 hover:bg-gray-200 hover:text-[#d10000] hover:border-[#d10000]">Reservar</td></tr>
+            <tr><td class="p-4 text-center border-b border-gray-300">13:30</td><td data-shift="m8" class="available p-4 text-center border-b border-gray-300 font-bold bg-gray-100 text-black cursor-pointer transition-all border-l-4 hover:bg-gray-200 hover:text-[#d10000] hover:border-[#d10000]">Reservar</td></tr>
+            <tr><td class="p-4 text-center border-b border-gray-300">14:00</td><td data-shift="m9" class="available p-4 text-center border-b border-gray-300 font-bold bg-gray-100 text-black cursor-pointer transition-all border-l-4 hover:bg-gray-200 hover:text-[#d10000] hover:border-[#d10000]">Reservar</td></tr>
+
+            <!-- Tarde -->
+            <tr><td class="p-4 text-center border-b border-gray-300">16:00</td><td data-shift="t0" class="available p-4 text-center border-b border-gray-300 font-bold bg-gray-100 text-black cursor-pointer transition-all border-l-4 hover:bg-gray-200 hover:text-[#d10000] hover:border-[#d10000]">Reservar</td></tr>
+            <tr><td class="p-4 text-center border-b border-gray-300">16:30</td><td data-shift="t1" class="available p-4 text-center border-b border-gray-300 font-bold bg-gray-100 text-black cursor-pointer transition-all border-l-4 hover:bg-gray-200 hover:text-[#d10000] hover:border-[#d10000]">Reservar</td></tr>
+            <tr><td class="p-4 text-center border-b border-gray-300">17:00</td><td data-shift="t2" class="available p-4 text-center border-b border-gray-300 font-bold bg-gray-100 text-black cursor-pointer transition-all border-l-4 hover:bg-gray-200 hover:text-[#d10000] hover:border-[#d10000]">Reservar</td></tr>
+            <tr><td class="p-4 text-center border-b border-gray-300">17:30</td><td data-shift="t3" class="available p-4 text-center border-b border-gray-300 font-bold bg-gray-100 text-black cursor-pointer transition-all border-l-4 hover:bg-gray-200 hover:text-[#d10000] hover:border-[#d10000]">Reservar</td></tr>
+            <tr><td class="p-4 text-center border-b border-gray-300">18:00</td><td data-shift="t4" class="available p-4 text-center border-b border-gray-300 font-bold bg-gray-100 text-black cursor-pointer transition-all border-l-4 hover:bg-gray-200 hover:text-[#d10000] hover:border-[#d10000]">Reservar</td></tr>
+            <tr><td class="p-4 text-center border-b border-gray-300">18:30</td><td data-shift="t5" class="available p-4 text-center border-b border-gray-300 font-bold bg-gray-100 text-black cursor-pointer transition-all border-l-4 hover:bg-gray-200 hover:text-[#d10000] hover:border-[#d10000]">Reservar</td></tr>
+            <tr><td class="p-4 text-center border-b border-gray-300">19:00</td><td data-shift="t6" class="available p-4 text-center border-b border-gray-300 font-bold bg-gray-100 text-black cursor-pointer transition-all border-l-4 hover:bg-gray-200 hover:text-[#d10000] hover:border-[#d10000]">Reservar</td></tr>
+            <tr><td class="p-4 text-center border-b border-gray-300">19:30</td><td data-shift="t7" class="available p-4 text-center border-b border-gray-300 font-bold bg-gray-100 text-black cursor-pointer transition-all border-l-4 hover:bg-gray-200 hover:text-[#d10000] hover:border-[#d10000]">Reservar</td></tr>
+        </tbody>
         </table>
+
     </main>
     <footer class="flex flex-row justify-around items-stretch w-11/12 mx-auto mt-5">
         <!-- Logo -->
