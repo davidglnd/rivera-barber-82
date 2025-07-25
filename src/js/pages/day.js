@@ -41,16 +41,16 @@ function handleClickReserve(shift,selectedDay){
 }
 
 async function AppointmentCardSubmit(e){
-  console.log(e.detail.time);
+  console.log(e.detail.shift);
 
   const appointment = new Appointment(e.detail.name, e.detail.email, e.detail.phone, e.detail.date, e.detail.shift, new Date().toISOString());
   console.log(appointment)
-  axios.post(`${API_BASE}/createAppointment`, appointment)
+  axios.post(`/api/createAppointment`, appointment)
   .then(res => {
-    console.log('✅ Cita guardada:', res.data);
-    location.reload();
+    console.log('✅ Cita guardada:', err);
+    location.reload(); // TO DO : NO ACTUALIZAR LA PAGINA CUANDO GUARDAS LA CITA ACTUALIZAR SOLO "ESTILOS"
   })
   .catch(err => {
-    console.error('❌ Error al guardar cita:', err.response.data);
+    console.error('❌ Error al guardar cita:', err);
   });
 }

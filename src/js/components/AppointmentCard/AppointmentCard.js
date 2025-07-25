@@ -39,9 +39,9 @@ export class AppointmentCard extends LitElement {
             bubbles: true,
             composed: true 
         }));
-        const divResponse = this.shadowRoot.querySelector('.response');
+        const divResponse = this.querySelector('.response');
         divResponse.textContent = 'Cita reservada';
-        setTimeout(() => this.remove(), 3000);
+        //setTimeout(() => this.remove(), 3000);
     }
     render() {
         return html`

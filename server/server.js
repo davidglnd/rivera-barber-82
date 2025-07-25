@@ -29,8 +29,16 @@ app.get('/', (req, res) => {
 
 // Rutas backend
 app.get('/notAvailibilityShifts/:date', notAvailibilityShifts);
-app.post('/createAppointment', createAppointment);
-app.get('/freeSlots/month/:monthYear', getFreeSlotsByMonth);
+
+app.post('/api/createAppointment',async (req, res) => {
+  try {
+    const result = await createAppointment(req.body);
+    res.send(result);
+  } catch (err) {
+    res.status(400).send(err.message);
+  }
+});
+app.get('/api/freeSlots/month/:monthYear', getFreeSlotsByMonth);
 app.get('/countAppointments', getCountAppointments);
 
 // Página 404

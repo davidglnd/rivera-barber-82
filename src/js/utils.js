@@ -1,6 +1,4 @@
-export const API_BASE = window.location.hostname === 'localhost'
-  ? 'http://localhost:1337'
-  : '';
+export const API_BASE = '';
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 export function firstLetterUpperCase(text) { 
     return text
