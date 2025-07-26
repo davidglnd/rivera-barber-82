@@ -1,10 +1,12 @@
 import { createAppointment } from '../../server/controllers/appointmentController.js';
 import { connectToDB } from '../../server/mongodb.js';
+import { checkMongoURI } from '../../server/utils/checkMongoUri.js';
 export async function handler(event) {
+  checkMongoURI();
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
-      body: JSON.stringify({ error: 'Método no permitido' }),
+      body: JSON.stringify({ error: 'Method not allowed' }),
     };
   }
 

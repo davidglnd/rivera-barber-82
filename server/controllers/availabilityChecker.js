@@ -13,14 +13,14 @@ export async function getFreeSlotsByMonth(data) {
         }
         return result;
     }catch(err){
-        console.log(err + ' avaChecker');
+        console.log(err + ' getFreeSlotsByMonth');
     }
 }
 
-export async function notAvailibilityShifts(req, res) {
-    const day = req.params.date;
-
+export async function notAvailibilityShifts(data) {
+    const day = data;
+    console.log(day);
     const shifts = await Appointment.find({date: day},{shift: 1, _id: 0});
     
-    res.send(shifts);
+    return shifts;
 }

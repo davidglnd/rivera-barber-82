@@ -41,5 +41,5 @@ export async function createAppointment(data){
 
 export async function getCountAppointments(req, res) {
     const count = await Appointment.countDocuments();
-    res.send(count);
+    return count;
 }

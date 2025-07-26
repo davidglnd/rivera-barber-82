@@ -28,7 +28,14 @@ app.get('/', (req, res) => {
 });
 
 // Rutas backend
-app.get('/notAvailibilityShifts/:date', notAvailibilityShifts);
+app.get('/api/notAvailibilityShifts/:date', async (req, res) => {
+  try {
+    const result = await notAvailibilityShifts(req.params.date);
+    res.send(result);
+  } catch (err) {
+    res.status(400).send(err.message);
+  }
+});
 
 app.post('/api/createAppointment',async (req, res) => {
   try {
@@ -46,7 +53,14 @@ app.get('/api/freeSlots/month/:monthYear', async (req,res) => {
     res.status(400).send(err.message);
   }
 });
-app.get('/countAppointments', getCountAppointments);
+app.get('/api/countAppointments', async (req, res) => {
+  try {
+    const result = await getCountAppointments();
+    res.send(result);
+  } catch (err) {
+    res.status(400).send(err.message);
+  }
+});
 
 // Página 404
 app.use((req, res) => {

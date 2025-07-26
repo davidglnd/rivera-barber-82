@@ -1,11 +1,12 @@
 import { getFreeSlotsByMonth } from '../../server/controllers/availabilityChecker.js';
 import {connectToDB} from '../../server/mongodb.js';
+import { checkMongoURI } from '../../server/utils/checkMongoUri.js';
 export async function handler(event) {
-  console.log('MONGO_URI desde env:', process.env.MONGO_URI);
+  checkMongoURI();
   if (event.httpMethod !== 'GET') {
     return {
       statusCode: 405,
-      body: JSON.stringify({ error: 'Método no permitido' }),
+      body: JSON.stringify({ error: 'Method not allowed' }),
     };
   }
 
