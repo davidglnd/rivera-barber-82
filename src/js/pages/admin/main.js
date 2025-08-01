@@ -1,5 +1,4 @@
 import axios from 'https://cdn.skypack.dev/axios';
-import { API_BASE } from "../../utils.js";
 
 window.addEventListener('DOMContentLoaded', async () => {
     const dashboardHome = document.querySelector('#dashboard-home');
