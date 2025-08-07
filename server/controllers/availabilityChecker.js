@@ -6,7 +6,8 @@ export async function getFreeSlotsByMonth(data) {
         const TOTAL_SHIFTS = 18;
         const daysInMonth = new Date(year, month, 0).getDate();
         const result = {};
-        for (let day = 1; day <= daysInMonth; day++) {
+        const actualDay = new Date().getDate();
+        for (let day = actualDay; day <= daysInMonth; day++) {
             const date = `${day}-${month}-${year}`;
             const count = await Appointment.find({ date }).countDocuments();
             result[date] = TOTAL_SHIFTS - count;
