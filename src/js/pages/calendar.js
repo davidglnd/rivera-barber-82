@@ -29,7 +29,8 @@ export async function printMonth(currentDate){// TO DO: TERMINAR DE SEPARAR EN F
     const table = document.querySelector('#calendar');
     const daysMonth = getsDaysInMonth(currentDate);
     const firstDayWeek = getFirstDayWeek(currentDate);
-    const classListCell = 'cursor-pointer m-auto p-3 border border-gray-300 rounded-lg shadow-md mt-4';
+    const classListCellAvalible = 'cursor-pointer m-auto p-3 border border-gray-300 rounded-lg shadow-md mt-4';
+    const classListCell = 'cursor-default bg-gray-300 m-auto p-3 border border-gray-300 rounded-lg shadow-md mt-4';
     showLoader(table);
 
     renderCalendarTitle(currentDate,month);
@@ -43,34 +44,45 @@ export async function printMonth(currentDate){// TO DO: TERMINAR DE SEPARAR EN F
     for (let days = 1; days <= daysMonth; days ++){
         const fullDate = `${days}-${month + 1}-${currentDate.getFullYear()}`;
         const freeSlots = allFreeSlots[fullDate] || 0;
-        
+
+
+
         const cell = document.createElement('td');
+        if(freeSlots > 0){
+            const color = getColorBySlots(freeSlots);
+            cell.style.backgroundColor = color;
+            cell.style.color = freeSlots < 18 / 3 ? 'white' : 'black';
 
-        const color = getColorBySlots(freeSlots);
-        cell.style.backgroundColor = color;
-        cell.style.color = freeSlots < 18 / 3 ? 'white' : 'black';
+            cell.innerHTML = `<p><span id="desktop-day">Dia:</span> ${days}</p> <p>${freeSlots} citas libres</p>`;// poner en mayor tamaño el numero del dia y en menor el numero de citas
+            cell.className = classListCellAvalible;
 
-        cell.innerHTML = `<p><span id="desktop-day">Dia:</span> ${days}</p> <p>${freeSlots} citas libres</p>`;// poner en mayor tamaño el numero del dia y en menor el numero de citas
-        cell.className = classListCell;
+            cell.id = days + '-' + numberMonth(month) + '-' + currentDate.getFullYear();
+            cell.addEventListener('click', () => daySelected(cell.id));
+            row.appendChild(cell);
+        }else{
+            cell.innerHTML = `<p><span id="desktop-day">Dia:</span> ${days}</p> <p>No hay citas libres</p>`;
+            cell.className = classListCell;
+            cell.id = days + '-' + numberMonth(month) + '-' + currentDate.getFullYear();
+            row.appendChild(cell);
+        }
 
-        cell.id = days + '-' + numberMonth(month) + '-' + currentDate.getFullYear();
-        cell.addEventListener('click', () => daySelected(cell.id));
-        row.appendChild(cell);
-
-        
 
         const dayOfWeek = firstDayMonth.getDay() === 0 ? 7 : firstDayMonth.getDay();
-
+        
         if(dayOfWeek === 7){
             table.querySelector('tbody').appendChild(row);
             row = document.createElement('tr');
             cell.innerText = 'Cerrado';
+            cell.style.removeProperty('color');
+            cell.style.removeProperty('background-color');
+            cell.className = classListCell;
             const oldCell = document.getElementById(`${days}-${numberMonth(month)}-${currentDate.getFullYear()}`);
             const newCell = oldCell.cloneNode(true);
             newCell.classList.remove('cursor-pointer');
             newCell.classList.add('hidden','md:table-cell');
             oldCell.parentNode.replaceChild(newCell, oldCell);
         }
+
         firstDayMonth.setDate(firstDayMonth.getDate() + 1);
     }
     if(row.children.length > 0){
