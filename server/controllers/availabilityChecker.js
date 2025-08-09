@@ -6,12 +6,23 @@ export async function getFreeSlotsByMonth(data) {
         const TOTAL_SHIFTS = 18;
         const daysInMonth = new Date(year, month, 0).getDate();
         const result = {};
-        const actualDay = new Date().getDate();
-        for (let day = actualDay; day <= daysInMonth; day++) {
-            const date = `${day}-${month}-${year}`;
-            const count = await Appointment.find({ date }).countDocuments();
-            result[date] = TOTAL_SHIFTS - count;
+        const actualDay = new Date().getDate();// TO DO ARREGLAR ESTE BUG QUE HACE QUE COMPARE LOS DIAS DE EL MES ACTUAL CON EL SIGUIENTE
+        let actualMonth = new Date().getMonth() + 1;
+        console.log(month + ' mes actual: ' + actualMonth);
+        if (month == actualMonth) {
+            for (let day = actualDay; day <= daysInMonth; day++) {
+                const date = `${day}-${month}-${year}`;
+                const count = await Appointment.find({ date }).countDocuments();
+                result[date] = TOTAL_SHIFTS - count;
+            }
+        }else{
+            for (let day = 1; day <= daysInMonth; day++) {
+                const date = `${day}-${month}-${year}`;
+                const count = await Appointment.find({ date }).countDocuments();
+                result[date] = TOTAL_SHIFTS - count;
+            }
         }
+
         return result;
     }catch(err){
         console.log(err + ' getFreeSlotsByMonth');
