@@ -811,6 +811,9 @@
   .text-green-400 {
     color: var(--color-green-400);
   }
+  .text-red-500 {
+    color: var(--color-red-500);
+  }
   .text-white {
     color: var(--color-white);
   }

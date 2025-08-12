@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon">
     <title>Barber Rivera 82</title>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+    <script type="module" src="../js/pages/appointment-finder.js"></script>
     <link rel="stylesheet" href="../output.css " type="text/css">
 </head>
 <body class="flex flex-col flex-wrap content-center">
@@ -28,10 +28,11 @@
     <form id="appointment-finder" class="flex flex-col gap-2 items-center  border border-gray-300 rounded-xl shadow-md p-4 bg-[#fffff0]">
       <label for="phone">Introduce tu telefono</label><input type="tel" name="phone" id="phone"></label>
       <label for="email">Introduce tu correo</label><input type="email" name="email" id="email"></label>
-      <button type="submit" class="bg-indigo-500 hover:bg-indigo-600 focus:outline-none rounded-md px-6 py-1 mx-auto  text-white transition duration-500 ease-in-out ">
+      <button id="submit-finder" type="submit" class="bg-indigo-500 hover:bg-indigo-600 focus:outline-none rounded-md px-6 py-1 mx-auto  text-white transition duration-500 ease-in-out ">
         Buscar
       </button>
     </form>
+    <div id="finder-results"></div>
   </main>
   <footer class="flex flex-row justify-around items-stretch w-11/12 mx-auto mt-5">
     <!-- Logo -->
