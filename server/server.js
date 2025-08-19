@@ -2,9 +2,8 @@ import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { connectToDB } from './mongodb.js';
-import { createAppointment } from './controllers/appointmentController.js';
 import { getFreeSlotsByMonth, notAvailibilityShifts } from './controllers/availabilityChecker.js';
-import { getCountAppointments } from './controllers/appointmentController.js';
+import { getCountAppointments, searchByPhone, createAppointment, searchByEmail } from './controllers/appointmentController.js';
 //models
 import { Appointment } from './models/Appointment.js';
 import { get } from 'http';
@@ -28,6 +27,24 @@ app.get('/', (req, res) => {
 });
 
 // Rutas backend
+app.get('/api/searchByPhone/:phone', async (req, res) => {
+  try {
+    const result = await searchByPhone(req.params.phone);
+    if(result.length === 0) res.status(404).send('No hay citas con ese numero de telefono');
+    res.send(result);
+  } catch (err) {
+    res.status(400).send(err.message);
+  }
+})
+app.get('/api/searchByEmail/:email', async (req, res) => {
+  try {
+    const result = await searchByEmail(req.params.email);
+    if(result.length === 0) res.status(404).send('No hay citas con ese correo electronico');
+    res.send(result);
+  } catch (err) {
+    res.status(400).send(err.message);
+  }
+})
 app.get('/api/notAvailibilityShifts/:date', async (req, res) => {
   try {
     const result = await notAvailibilityShifts(req.params.date);

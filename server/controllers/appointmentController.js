@@ -38,7 +38,30 @@ export async function createAppointment(data){
         };
     }
 }
-
+export async function searchByPhone(phone) {
+    try {
+        const appointments = await Appointment.find({ phone: phone });
+        return appointments;
+    } catch (error) {
+        console.log(error);
+        return {
+            statusCode: 500,
+            body: JSON.stringify(error),
+        };
+    }
+}
+export async function searchByEmail(email) {
+    try {
+        const appointments = await Appointment.find({ email: email });
+        return appointments;
+    } catch (error) {
+        console.log(error);
+        return {
+            statusCode: 500,
+            body: JSON.stringify(error),
+        };
+    }
+}
 export async function getCountAppointments(req, res) {
     const count = await Appointment.countDocuments();
     return count;
