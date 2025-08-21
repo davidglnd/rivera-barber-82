@@ -30,19 +30,25 @@ app.get('/', (req, res) => {
 app.get('/api/searchByPhone/:phone', async (req, res) => {
   try {
     const result = await searchByPhone(req.params.phone);
-    if(result.length === 0) res.status(404).send('No hay citas con ese numero de telefono');
-    res.send(result);
+    if(result.length === 0){
+      return res.status(404).send('No hay citas con ese numero de telefono');
+    }else {
+      return res.send(result);
+    }
   } catch (err) {
-    res.status(400).send(err.message);
+    return res.status(400).send(err.message);
   }
 })
 app.get('/api/searchByEmail/:email', async (req, res) => {
   try {
     const result = await searchByEmail(req.params.email);
-    if(result.length === 0) res.status(404).send('No hay citas con ese correo electronico');
-    res.send(result);
+    if(result.length === 0){
+      return res.status(404).send('No hay citas con ese correo electronico');
+    }else{
+      return res.send(result);
+    } 
   } catch (err) {
-    res.status(400).send(err.message);
+    return res.status(400).send(err.message);
   }
 })
 app.get('/api/notAvailibilityShifts/:date', async (req, res) => {
